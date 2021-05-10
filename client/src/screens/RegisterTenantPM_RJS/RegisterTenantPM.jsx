@@ -145,6 +145,8 @@ const RegisterTenantPM = ({ t }) => {
         if (i18n.language === "en") {
           await axios.post(`${REACT_APP_BASE_URL_EMAIL}/rjs`, {
             agencyName: responseDataAfter.agent.agencyName,
+            agencyContactPerson: responseDataAfter.agent.agentContactPerson,
+            agencyEmailPerson: responseDataAfter.agent.agencyEmailPerson,
             rentalAddress: responseDataAfter.property.rentalAddress,
             tenantsName: responseDataAfter.tenant.tenantsName,
             pmAnex: responseDataAfter.pmAnex,
@@ -153,6 +155,8 @@ const RegisterTenantPM = ({ t }) => {
         } else {
           await axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rjs`, {
             agencyName: responseDataAfter.agent.agencyName,
+            agencyContactPerson: responseDataAfter.agent.agentContactPerson,
+            agencyEmailPerson: responseDataAfter.agent.agencyEmailPerson,
             rentalAddress: responseDataAfter.property.rentalAddress,
             tenantsName: responseDataAfter.tenant.tenantsName,
             pmAnex: responseDataAfter.pmAnex,

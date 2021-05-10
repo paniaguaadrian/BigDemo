@@ -3,9 +3,9 @@ import sgTransport from "nodemailer-sendgrid-transport";
 import hbs from "nodemailer-express-handlebars";
 
 // * Rimbo rent emails
-// const rimboEmail = "info@rimbo.rent";
+const rimboEmail = "info@rimbo.rent";
 // const testEmail = "paniaguasanchezadrian@gmail.com";
-const testEmail = "gloriya@rimbo.rent";
+// const testEmail = "gloriya@rimbo.rent";
 // const testEmail = "victor@rimbo.rent";
 
 // ! RJ1 Form => RJ3, RJ4, RJD Emails
@@ -156,7 +156,7 @@ const sendRJ1FormEmails = async (req, res) => {
   // RJ3 Email  @PM/Agency
   const PMEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // PM/Agency email
+    to: agencyEmailPerson, // PM/Agency email
     subject: "Inquilino registrado correctamente con Rimbo",
 
     attachments: [
@@ -396,7 +396,7 @@ const sendRJ1FormEmails = async (req, res) => {
   // RJD Email  @Rimbo
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // Rimbo email
+    to: rimboEmail, // Rimbo email
     subject: `Nuevo inquilino registrado por ${agencyName}`,
     attachments: [
       {
@@ -554,7 +554,7 @@ const sendRJ3FilesEmail = async (req, res) => {
   // RJXX3 email @Rimbo
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // Rimbo email
+    to: rimboEmail, // Rimbo email
     subject: `${tenantsName} listo/a para evaluación`,
     attachments: [
       {
@@ -639,7 +639,7 @@ const sendRJ11Emails = async (req, res) => {
   // RJ11 Email  @PM/Agency
   const pmEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // pm's email
+    to: agencyEmailPerson, // pm's email
     subject: `Alquiler en ${rentalAddress} Aceptado!`,
     attachments: [
       {
@@ -721,7 +721,7 @@ const sendRJ12Emails = async (req, res) => {
   // RJ12 Email  @PM/Agency
   const pmEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // pm's email
+    to: agencyEmailPerson, // pm's email
     subject: `Alquiler en ${rentalAddress} Rechazado.`,
 
     attachments: [
@@ -746,7 +746,7 @@ const sendRJ12Emails = async (req, res) => {
   // RJ12 Email  @Rimbo
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // rimbo's email
+    to: rimboEmail, // rimbo's email
     subject: `Alquiler en ${rentalAddress} Rechazado`,
     attachments: [
       {
@@ -851,7 +851,7 @@ const sendPMEmails = async (req, res) => {
   // RJXX4 Email @Rimbo
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // Rimbo email
+    to: rimboEmail, // Rimbo email
     subject: `Inquilino aceptado por ${agencyName}`,
     attachments: [
       {
@@ -889,7 +889,7 @@ const sendPMEmails = async (req, res) => {
   // RJ14 Email @Tenant
   const TenantEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // tenant Email
+    to: tenantsEmail, // tenant Email
     subject: "¿Todo listo para mudarte?",
     attachments: [
       {
@@ -965,7 +965,7 @@ const sendRJ3FormEmail = async (req, res) => {
   // RJ15 email @Rimbo
   const RimbosEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // Rimbo email
+    to: rimboEmail, // Rimbo email
     subject: `${tenantsName} Tarjeta registrada correctamente`,
     attachments: [
       {
@@ -1107,7 +1107,7 @@ const sendRJ15EmailsPM = async (req, res) => {
   // RJ16 email @PM
   const PMsEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // PM email
+    to: agencyEmailPerson, // PM email
     subject: `Registro de alquiler finalizado`,
     attachments: [
       {
@@ -1142,13 +1142,8 @@ const sendRJ15EmailsPM = async (req, res) => {
 
 // ! RJS Form => RJ18 Email
 const sendRJSFormEmail = async (req, res) => {
-  const {
-    agencyName,
-    rentalAddress,
-    tenantsName,
-    pmAnex,
-    tenancyID,
-  } = req.body;
+  const { agencyName, rentalAddress, tenantsName, pmAnex, tenancyID } =
+    req.body;
 
   const transporterRJS = nodemailer.createTransport(
     sgTransport({
@@ -1172,7 +1167,7 @@ const sendRJSFormEmail = async (req, res) => {
   // RJ18 email @Rimbo
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // Rimbo email
+    to: rimboEmail, // Rimbo email
     subject: `Inicio de alquiler preparar aval`,
     attachments: [
       {
@@ -1293,7 +1288,7 @@ const sendRJ18EmailPM = async (req, res) => {
   // RJ20 email @PM
   const PMEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: testEmail, // PM email
+    to: agencyEmailPerson, // PM email
     subject: `¡Enhorabuena! La propiedad ya está cubierta por Rimbo`,
 
     attachments: [
