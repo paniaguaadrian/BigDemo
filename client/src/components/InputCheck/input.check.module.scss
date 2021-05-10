@@ -1,0 +1,64 @@
+@import "../../styles/variables";
+@import "../../styles/breakpoint";
+
+.InputCheck {
+  margin: 0 auto;
+  font-family: Nunito, sans-serif;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  @include xl {
+    margin: 0 auto;
+    font-family: Nunito, sans-serif;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.4em 0.8em;
+    border-radius: 25px;
+    border: 1px solid $tertiary-color;
+    font-size: 3rem !important;
+    margin-right: 1rem;
+
+    @include xl {
+      height: 1.2rem;
+      width: 1.2rem;
+      padding: 0.4em 0.8em;
+      border-radius: 50px;
+      border: 1px solid $tertiary-color !important;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.InputErrorContainer {
+  margin-top: 1rem;
+  margin-left: 0.6rem;
+  @include xl {
+    margin-top: 1rem;
+    margin-left: 0.6rem;
+  }
+  .InputError {
+    color: $danger;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    @include xl {
+      color: $danger;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
+  }
+}

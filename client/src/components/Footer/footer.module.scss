@@ -1,0 +1,192 @@
+@import "../../styles/variables";
+@import "../../styles/_breakpoint";
+
+// Big container
+.FooterContainer {
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 2rem 2rem;
+  background-color: $rimboBlue;
+  color: white;
+  font-weight: 500;
+
+  @media only screen and (min-width: 1200px) {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 2rem;
+    background-color: $rimboBlue;
+    color: white;
+    font-weight: auto;
+    bottom: 0;
+  }
+
+  // Content container
+
+  .FooterContent {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include xl {
+      padding: 2rem 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  // Left side
+
+  .FooterMain {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    a {
+      margin-bottom: 2rem;
+    }
+    h4 {
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+    }
+    @include xl {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: left !important;
+      align-items: left !important;
+      justify-content: flex-start !important;
+
+      a {
+        margin-bottom: 2rem;
+      }
+      h4 {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .FooterSocialMedia {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+    }
+    li {
+      margin-right: 1rem;
+    }
+    @include xl {
+      margin-top: 6rem;
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+      }
+      li {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .SocialMediaIcon {
+    color: white;
+    transition: all 0.2s ease-in-out;
+    font-size: 2rem;
+    @include xl {
+      color: white;
+      transition: all 0.2s ease-in-out;
+      font-size: 1.5rem;
+    }
+  }
+  .SocialMediaIcon:hover {
+    color: #00fff7;
+  }
+
+  // Right side
+
+  .FooterSecond {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  // Multilanguage
+
+  .LanguageContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .LanguageLogo {
+    height: 2rem;
+    @include xl {
+      height: 1.3rem;
+    }
+  }
+
+  .ToggleLanguageButton {
+    background: none !important;
+    border: none;
+    background-color: none !important;
+    width: 3rem !important;
+    margin: 0 auto;
+  }
+
+  .FooterLinks {
+    margin-left: 0rem;
+    width: 8rem;
+    h4 {
+      color: #00fff7;
+      border-bottom: 1px solid #00fff7;
+      height: 1.9rem;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    ul {
+      list-style-type: none;
+    }
+    li {
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      transition: all 0.2s ease-in-out;
+    }
+    li:hover {
+      color: $tertiary-color;
+    }
+    @include xl {
+      margin-left: 4rem;
+      width: 10rem;
+      h4 {
+        color: #00fff7;
+        border-bottom: 1px solid #00fff7;
+        height: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 400;
+      }
+      ul {
+        list-style-type: none;
+      }
+      li {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        transition: all 0.2s ease-in-out;
+      }
+      li:hover {
+        color: $tertiary-color;
+      }
+    }
+  }
+}

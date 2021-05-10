@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+@import "../../styles/breakpoint";
+
+Button {
+  width: 15rem;
+  height: 3.2rem;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  font-family: Nunito, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: $white;
+  border: none;
+  border-radius: 20px;
+
+  @include xl {
+    width: 12rem;
+    height: 2rem;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    font-family: Nunito, sans-serif;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    color: $white;
+    border: none;
+    border-radius: 30px;
+  }
+}

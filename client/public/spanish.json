@@ -1,0 +1,23 @@
+{
+  "titlePartOne": "¡Alquila esta habitación",
+  "titlePartTwo": "sin pagar fianza",
+  "informationOne": "Desde Enso estamos muy contentos de que quieras formar parte de esta gran familia, y como buena familia, nos gusta cuidar de los nuestros.",
+  "informationTwo": "Alquiler sin fianza, para que te gastes el dinero en lo que tú quieras.",
+  "informationThree": "Con Enso puedes mudarte de manera rápida, fácil y asequible. Solo tendrás que rellenar este pequeño formulario con tus datos... Y LISTO",
+  "nameLabel": "Nombre completo",
+  "telLabel": "Teléfono",
+  "telPlaceholder": "Tú número de contacto",
+  "cardTitle": "Detalles tarjeta de débito",
+  "cardSubtitle": "Remember, you must list the account where you receive your income",
+  "adviceText": "* Solo preautorización, limitada por importe hasta 1 mes de alquiler",
+  "terms1": "Enviando tus datos aceptas las",
+  "terms2": "Condiciones Generales",
+  "terms3": "Política de Privacidad",
+  "terms4": "Política de Cookies",
+  "terms5": "de Rimbo Rent",
+  "sendButton": "Enviar mis datos",
+  "sucessOne": "¡Ya eres parte de Enso!",
+  "successTwo": "En unos momentos Guille te enviará el contrato.",
+  "successThree": "Si tienes alguna duda, el equipo de Enso está disponible para ti.",
+  "successFour": "Ahora toca disfrutar de la mejor experiencia de tu vida."
+}

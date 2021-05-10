@@ -1,0 +1,82 @@
+@import "../../styles/_variables";
+@import "../../styles/_breakpoint";
+
+.C404PageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  height: 72vh;
+  @include xl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+
+    background-color: white;
+    height: 80vh;
+  }
+}
+
+.C404PageText {
+  margin: 0 auto;
+  padding: 0 3rem;
+  color: black;
+  @include xl {
+    margin: 0 auto;
+    color: black;
+  }
+  h1 {
+    @include xl {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgb(193, 33, 33);
+  }
+  h2 {
+    @include xl {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+  p {
+    @include xl {
+      margin: 0 auto;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      margin-right: 1rem;
+    }
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+  img {
+    width: 25rem;
+    margin: 0 auto;
+  }
+}

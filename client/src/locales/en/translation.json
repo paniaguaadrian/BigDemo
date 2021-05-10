@@ -1,0 +1,217 @@
+{
+  "nextStepButton": "Next Step",
+  "prevStepButton": "Previous Step",
+  "submitButton": "Send",
+  "authorize": "Send data",
+  "authorizeTwo": "Register",
+  "addTenant": "Add tenant",
+  "deleteTenant": "Delete tenant",
+  "NavBar": {
+    "linkOne": "Tenants",
+    "linkTwo": "Landlords",
+    "linkThree": "Agencies"
+  },
+  "Footer": {
+    "leftTitle": "Welcome to the easy renting!",
+    "leftSubtitle": "Discover a new way of renting that is fairer and safer for everyone",
+    "rimbo": "Rimbo",
+    "about": "About us",
+    "tenants": "Tenants",
+    "landlords": "Owners",
+    "agencies": "Property Managers",
+    "coliving": "Co-living",
+    "pmspmp": "PMS/PMP",
+    "news": "News",
+    "help": "Help",
+    "contact": "Contact",
+    "legal": "Legal",
+    "legalNotice": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies Policy",
+    "copyright": "© Rimbo S.L. 2021 All rights reserved"
+  },
+  "404Page": {
+    "header": "404 error page - Rimbo",
+    "title": "Error 404 - The page you are looking for doesn't exist 😔",
+    "subtitle": "Please, reload the latest link you have received, or get in touch with us:",
+    "paragraphEmail": "info@rimbo.rent",
+    "paragraphPhone": "+34 623 063 769"
+  },
+  "RJ1": {
+    "helmet": "New tenancy - Rimbo - The new way of rent",
+    "header": {
+      "title": "List your tenant for screening",
+      "subtitleOne": "Fill out the fields.",
+      "subtitleTwo": "Rimbo screens in 24 hours.",
+      "subtitleThree": "Receive a response via email."
+    },
+    "stepZero": {
+      "agencyName": "Agency Name",
+      "agencyNamePL": "Enter the name",
+      "contactPerson": "Contact Person",
+      "contactPersonPL": "Enter full name",
+      "email": "Email",
+      "emailPL": "Enter a valid email address",
+      "phoneNumber": "Phone number",
+      "phoneNumberPL": "Enter phone number"
+    },
+    "stepOne": {
+      "tenantsName": "Tenant's full name",
+      "tenantsNamePL": "Enter name and surname",
+      "tenantsEmail": "Tenant's email",
+      "tenantsEmailPL": "Enter a valid email address",
+      "tenantsPhone": "Tenant's phone number",
+      "tenantsPhonePL": "Enter phone number"
+    },
+    "stepTwo": {
+      "service": "Choose service",
+      "servicePL": "Select Rimbo service",
+      "serviceOne": "1 month",
+      "serviceTwo": "2 months",
+      "serviceThree": "3 months",
+      "rentDuration": "Duration rental agreement (years)",
+      "rentDurationPL": "Enter duration",
+      "rentAmount": "Monthly rent (in €)",
+      "rentAmountPL": "Enter rent",
+      "rentalAddress": "Address of the property",
+      "rentalAddressPL": "Enter address",
+      "rentalCity": "City",
+      "rentalCityPL": "Barcelona, Madrid...",
+      "rentalPostalCode": "Postal Code",
+      "rentalPostalCodePL": "XXXXX"
+    },
+    "stepThree": {
+      "landlordName": "Landlord full name",
+      "landlordNamePL": "Enter name and surname",
+      "landlordEmail": "Landlord email",
+      "landlordEmailPL": "Enter a valid email address",
+      "landlordPhone": "Landlord phone number",
+      "landlordPhonePL": "Enter phone number",
+      "checkbox": "By submitting this form, you understand and accept that we use your information in accordance with our ",
+      "privacy": "privacy policy",
+      "checkboxTwo": " and ",
+      "cookies": " cookies policy"
+    },
+    "success": {
+      "title": "Awesome, we have received your details! ",
+      "subtitle": "We will get in touch with you shortly to complete the process."
+    }
+  },
+  "RJ2": {
+    "helmet": "New tenant - Rimbo - The new way of rent",
+    "header": {
+      "title": "Tell us a little more about yourself ",
+      "titleTwo": "to save the deposit of your next apartment",
+      "subtitle": "All we need from you is the following information. Quick and easy!",
+      "extraInfo": "We will need a scanned copy of your DNI / NIE (front and back) or passport and a document that confirms your current address. If you are an EU citizen, please provide your NIE number in the “Document number” field and send us a scanned copy of the identity document of your country of origin."
+    },
+    "form": {
+      "monthlyNetIncome": "Monthly net income",
+      "monthlyNetIncomePL": "Write your income",
+      "documentType": "Document type",
+      "documentTypePL": "Select Document type",
+      "documentTypeOne": "DNI",
+      "documentTypeTwo": "NIE",
+      "documentTypeThree": "Passport",
+      "documentTypeFour": "Other",
+      "tenantsAddress": "Current Address",
+      "tenantsAddressPL": "Address where you reside",
+      "jobType": "Job type",
+      "jobTypePL": "Select your job type",
+      "jobTypeOne": "Employment Contract",
+      "jobTypeTwo": "Freelancer",
+      "jobTypeThree": "Unemployed",
+      "jobTypeFour": "I am a company",
+      "jobTypeFive": "I am retired",
+      "jobTypeSix": "I am a student",
+      "jobTypeSeven": "Other",
+      "documentNumber": "Document Number",
+      "documentNumberPL": "Number of your document",
+      "tenantsZipCode": "Current zip code",
+      "tenantsZipCodePL": "XXXXX",
+      "DNIFront": "DNI/NIE (Front)",
+      "DNIBack": "DNI/NIE (Back)",
+      "DCA": "Document confirming your current address (e.g. receipt of supplies)",
+      "checkbox": "By submitting this form, you understand and agree that we use your information in accordance with our ",
+      "privacy": "privacy policy",
+      "checkboxTwo": " and ",
+      "cookies": " cookies policy",
+      "checkboxThree": " to offer you Rimbo services."
+    },
+    "success": {
+      "title": "Awesome, we have received your details! ",
+      "subtitle": "We will get in touch with you shortly to complete the process."
+    }
+  },
+  "RJ3": {
+    "helmet": "New tenant - Rimbo - The new way of rent",
+    "header": {
+      "title": "Great! You are just one step away from renting without a deposit!",
+      "subtitle": "You just need to review our Terms and Conditions and register your card"
+    },
+    "form": {
+      "tenantTitle": "Your details",
+      "name": "Full name: ",
+      "email": "Email: ",
+      "phone": "Phone: ",
+      "cardTitle": "Debit card details",
+      "cardSubtitle": "Remember, you must list the account where you receive your income",
+      "extraInfo": "*The card will NOT be blocked. The card will NOT be charged now. Only in case of legal claims presented by the landlord the card will be charged, import limited to ",
+      "extraInfoTwo": " of rent.",
+      "checkbox": "By hiring Rimbo's Services, you accept the",
+      "generalConditions": " Rimbo general conditions"
+    },
+    "success": {
+      "title": "Awesome, we have received your details! ",
+      "subtitle": "We will get in touch with you shortly to complete the process."
+    }
+  },
+  "RJS": {
+    "helmet": "Rental Start Confirmation - Rimbo - The new way of rent",
+    "header": {
+      "title": "Horray! The rental is now covered by Rimbo!",
+      "titleTwo": "Your tenants can move in now!",
+      "subTitle": "Confirm the rental start date and upload the Rimbo Annex."
+    },
+    "form": {
+      "rentalStart": "Rental start date",
+      "rentalAgreement": "Rental Agreement - Rimbo Annex"
+    },
+    "success": {
+      "title": "Awesome, we have received your details! ",
+      "subtitle": "We will get in touch with you shortly to complete the process."
+    }
+  },
+  "approvedCardRimbo": {
+    "helmet": "Tenant's card approved - Rimbo - The new way of rent",
+    "title": "The tenant has been accepted after the debit card request.",
+    "subTitle": "The tenant and property manager have been receive an email confirmation."
+  },
+  "approvedTenancyPM": {
+    "helmet": "Tenancy approved by PM - Rimbo - The new way of rent",
+    "title": "You have successfully accepted the tenancy",
+    "subTitle": "Both you and the tenant(s) will receive an email with the details of the process"
+  },
+
+  "rejectedTenancyPM": {
+    "helmet": "Tenancy rejected by PM - Rimbo - The new way of rent",
+    "title": "You have successfully rejected the tenancy",
+    "subTitle": "Rimbo will receive an email with the details of the process"
+  },
+
+  "approvedTenantRimbo": {
+    "helmet": "Tenant approved by Rimbo - Rimbo - The new way of rent",
+    "title": "You have successfully accepted the tenant",
+    "subTitle": "Both you and the tenant will receive an email with the details of the process"
+  },
+  "rejectedTenantRimbo": {
+    "helmet": "Tenant rejected by Rimbo - Rimbo - The new way of rent",
+    "title": "You have successfully rejected the tenant",
+    "subTitle": "Both you and the property manager will receive an email with the details of the process"
+  },
+  "approvedTenancyRimbo": {
+    "helmet": "Tenancy approved by Rimbo - Rimbo - The new way of rent",
+    "title": "You have successfully accepted the tenancy",
+    "subTitle": " The tenant an the PM will receive an email informed that the service has begun."
+  }
+}

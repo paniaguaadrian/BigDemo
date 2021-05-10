@@ -1,0 +1,81 @@
+@import "../../styles/variables";
+@import "../../styles/breakpoint";
+
+.Input {
+  margin-bottom: 2.5rem;
+  font-family: Nunito, sans-serif;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  @include xl {
+    margin-bottom: 3rem;
+    font-family: Nunito, sans-serif;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 1.5rem;
+    outline: none;
+    @include xl {
+      color: $primary-color;
+      font-weight: 500;
+      font-size: 1rem;
+      outline: none;
+    }
+  }
+
+  input {
+    height: 2.5em;
+    width: 100%;
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    border: 1px solid $tertiary-color;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+
+    @include xl {
+      height: 2.3em;
+      width: 100%;
+      padding: 0.4em 0.8em;
+      border-radius: 25px;
+      border: 1px solid $tertiary-color;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.InputCheck {
+  color: red;
+}
+
+.InputErrorContainer {
+  margin-top: 1.2rem;
+  margin-left: 0.6rem;
+  @include xl {
+    margin-top: 0.8rem;
+    margin-left: 0.2rem;
+  }
+  .InputError {
+    color: $danger;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    @include xl {
+      color: $danger;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-top: 1rem;
+    }
+  }
+}

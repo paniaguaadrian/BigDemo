@@ -1,0 +1,217 @@
+{
+  "nextStepButton": "Siguiente",
+  "prevStepButton": "Atrás",
+  "submitButton": "Enviar",
+  "authorize": "Enviar datos",
+  "authorizeTwo": "Regístrate",
+  "addTenant": "Añadir inquilino",
+  "deleteTenant": "Eliminar inquilino",
+  "NavBar": {
+    "linkOne": "Inquilinos",
+    "linkTwo": "Propietarios",
+    "linkThree": "Agencias"
+  },
+  "Footer": {
+    "leftTitle": "¡Bienvenido al easy renting!",
+    "leftSubtitle": "Descubre una nueva forma de alquilar más justa y segura para todos",
+    "rimbo": "Rimbo",
+    "about": "Sobre nosotros",
+    "tenants": "Inquilinos",
+    "landlords": "Propietarios",
+    "agencies": "Administradores Inmobiliarios",
+    "coliving": "Co-living",
+    "pmspmp": "PMS/PMP",
+    "news": "Noticias",
+    "help": "Ayuda",
+    "contact": "Contacto",
+    "legal": "Legal",
+    "legalNotice": "Aviso Legal",
+    "privacy": "Política de Privacidad",
+    "cookies": "Política de Cookies",
+    "copyright": "© Rimbo S.L. 2021 Todos los derechos reservados"
+  },
+  "404Page": {
+    "header": "404 error page - Rimbo",
+    "title": "404 - La página a la que intentas acceder no existe 😔",
+    "subtitle": "Por favor vuelve a cargar el último enlace que has recibido o ponte en contacto con nosotros a:",
+    "paragraphEmail": "info@rimbo.rent",
+    "paragraphPhone": "+34 623 063 769"
+  },
+  "RJ1": {
+    "helmet": "Nuevo alquiler - Rimbo - The new way of rent",
+    "header": {
+      "title": "Registra a tu inquilino para su evaluación",
+      "subtitleOne": "Completa los campos.",
+      "subtitleTwo": "Rimbo evalúa al inquilino en las próximas 24 horas.",
+      "subtitleThree": "Recibirás una respuesta por correo electrónico."
+    },
+    "stepZero": {
+      "agencyName": "Nombre de la inmobiliaria",
+      "agencyNamePL": "Escribe el nombre",
+      "contactPerson": "Persona de contacto",
+      "contactPersonPL": "Escribe tu nombre completo",
+      "email": "Correo Electrónico",
+      "emailPL": "Escribe el correo electrónico",
+      "phoneNumber": "Número de teléfono",
+      "phoneNumberPL": "Escribe el número de teléfono"
+    },
+    "stepOne": {
+      "tenantsName": "Nombre completo del inquilino",
+      "tenantsNamePL": "Escribe el nombre completo",
+      "tenantsEmail": "Correo electrónico del inquilino",
+      "tenantsEmailPL": "Escribe el correo electrónico",
+      "tenantsPhone": "Número de teléfono del inquilino",
+      "tenantsPhonePL": "Escribe el número de teléfono"
+    },
+    "stepTwo": {
+      "service": "Servicio escogido",
+      "servicePL": "Selecciona un servicio",
+      "serviceOne": "1 mes",
+      "serviceTwo": "2 meses",
+      "serviceThree": "3 meses",
+      "rentDuration": "Duración del contrato de alquiler (años)",
+      "rentDurationPL": "Escribe la duración",
+      "rentAmount": "Alquiler mensual (en €)",
+      "rentAmountPL": "Escribe el alquiler",
+      "rentalAddress": "Dirección del inmueble",
+      "rentalAddressPL": "Escribe la dirección",
+      "rentalCity": "Población del inmueble",
+      "rentalCityPL": "Barcelona, Madrid...",
+      "rentalPostalCode": "Código postal del inmueble",
+      "rentalPostalCodePL": "XXXXX"
+    },
+    "stepThree": {
+      "landlordName": "Nombre del propietario",
+      "landlordNamePL": "Escribe el nombre completo",
+      "landlordEmail": "Email",
+      "landlordEmailPL": "Escribe el email",
+      "landlordPhone": "Teléfono",
+      "landlordPhonePL": "Escribe el teléfono",
+      "checkbox": "Al enviar este formulario, entiendes y aceptas que utilizamos tu información de acuerdo con nuestra ",
+      "privacy": "política de privacidad ",
+      "checkboxTwo": " y nuestra ",
+      "cookies": " política de cookies"
+    },
+    "success": {
+      "title": "Genial, ¡hemos recibido tus detalles!",
+      "subtitle": "Nos pondremos en contacto contigo en breve para completar el proceso."
+    }
+  },
+  "RJ2": {
+    "helmet": "Nuevo inquilino - Rimbo - The new way of rent",
+    "header": {
+      "title": "Cuéntanos un poco más de ti ",
+      "titleTwo": "para ahorrarte el depósito de tu próximo piso",
+      "subtitle": "Todo lo que necesitamos de ti es la siguiente información. ¡Rapido y Facil!",
+      "extraInfo": "Necesitaremos una copia escaneada de tu DNI/NIE (anverso y reverso) o pasaporte y un documento que confirme tu dirección actual. Si eres ciudadano de la UE, por favor informa tu número de NIE en el campo “Número de documento” y envíanos una copia escaneada del documento de identidad de tu país de origen."
+    },
+    "form": {
+      "monthlyNetIncome": "Ingresos netos mensuales",
+      "monthlyNetIncomePL": "Escribe tus ingresos",
+      "documentType": "Tipo de documento",
+      "documentTypePL": "Selecciona un tipo de documento",
+      "documentTypeOne": "DNI",
+      "documentTypeTwo": "NIE",
+      "documentTypeThree": "Pasaporte",
+      "documentTypeFour": "Otros",
+      "tenantsAddress": "Dirección de residencia actual",
+      "tenantsAddressPL": "Dirección en la que resides",
+      "jobType": "Tipo de empleo",
+      "jobTypePL": "Selecciona tu tipo de empleo",
+      "jobTypeOne": "Asalariado",
+      "jobTypeTwo": "Autónomo",
+      "jobTypeThree": "Sin empleo",
+      "jobTypeFour": "Somos una empresa",
+      "jobTypeFive": "Estoy jubilado/a",
+      "jobTypeSix": "Soy estudiante",
+      "jobTypeSeven": "Otro",
+      "documentNumber": "Número de documento",
+      "documentNumberPL": "Número de tu documento",
+      "tenantsZipCode": "Código postal actual",
+      "tenantsZipCodePL": "XXXXX",
+      "DNIFront": "DNI/NIE (Frontal)",
+      "DNIBack": "DNI/NIE (Atrás)",
+      "DCA": "Documento que confirme tu dirección actual (ej. Recibo de suministros)",
+      "checkbox": "Al enviar este formulario, entiendes y aceptas que utilizamos tu información de acuerdo con nuestra ",
+      "privacy": "política de privacidad",
+      "checkboxTwo": " y nuestra ",
+      "cookies": " política de cookies",
+      "checkboxThree": ", para ofrecerte los servicios de Rimbo"
+    },
+    "success": {
+      "title": "Genial, ¡hemos recibido tus detalles!",
+      "subtitle": "Nos pondremos en contacto contigo en breve para completar el proceso."
+    }
+  },
+  "RJ3": {
+    "helmet": "Nuevo inquilino - Rimbo - The new way of rent",
+    "header": {
+      "title": "¡Genial! ¡Estás a solo un paso de formar parte de Rimbo!",
+      "subtitle": "Solo falta que revises nuestros Términos y condiciones y que registres tu tarjeta"
+    },
+    "form": {
+      "tenantTitle": "Tus datos",
+      "name": "Nombre: ",
+      "email": "Correo: ",
+      "phone": "Teléfono: ",
+      "cardTitle": "Detalles tarjeta de débito",
+      "cardSubtitle": "Debes registrar la tarjeta de débito que esté conectada a tu cuenta principal",
+      "extraInfo": "*La tarjeta NO será bloqueada. NO se realizará ningún cargo en este momento. Solo se realizarán cargos en caso de que se presenten cargos legales por parte del propietario, con importe limitado hasta ",
+      "extraInfoTwo": " de alquiler.",
+      "checkbox": "Al contratar los servicios de Rimbo aceptas las",
+      "generalConditions": " condiciones generales de Rimbo"
+    },
+    "success": {
+      "title": "Genial, ¡hemos recibido tus detalles!",
+      "subtitle": "Nos pondremos en contacto contigo en breve para completar el proceso."
+    }
+  },
+  "RJS": {
+    "helmet": "Confirmación inicio alquiler - Rimbo - The new way of rent",
+    "header": {
+      "title": "¡Bien! ¡El alquiler ya está cubierto por Rimbo!",
+      "titleTwo": " ¡Tus inquilinos ya pueden mudarse!",
+      "subTitle": "Confirma la fecha de inicio del alquiler y sube el Anexo de Rimbo y la orden de cargo SEPA"
+    },
+    "form": {
+      "rentalStart": "Fecha de inicio del alquiler",
+      "rentalAgreement": "Documentos (Anexo+SEPA)"
+    },
+    "success": {
+      "title": "Genial, ¡hemos recibido tus detalles!",
+      "subtitle": "Nos pondremos en contacto contigo en breve para completar el proceso."
+    }
+  },
+  "approvedCardRimbo": {
+    "helmet": "Tarjeta de inquilino aceptada - Rimbo - The new way of rent",
+    "title": "El inquilino ha sido aceptado después de verificar su tarjeta de débito",
+    "subTitle": "El tenant y el propietario recibirán un email de confirmación"
+  },
+
+  "approvedTenancyPM": {
+    "helmet": "Alquiler aprobado por el propietario - Rimbo - The new way of rent",
+    "title": "Has aceptado correctamente al inquilino(s)",
+    "subTitle": "Tanto tu como el/los inquilino(s) recibiréis un email con los detalles del proceso"
+  },
+
+  "rejectedTenancyPM": {
+    "helmet": "Alquiler rechazado por el propietario - Rimbo - The new way of rent",
+    "title": "Has rechazado correctamente al inquilino(s)",
+    "subTitle": "Rimbo recibirá un email con los detalles del proceso"
+  },
+  "approvedTenantRimbo": {
+    "helmet": "Inquilino aprobado por Rimbo - Rimbo - The new way of rent",
+    "title": "Has aceptado al inquilino correctamente",
+    "subTitle": "Tanto tu como el inquilino recibiréis un email con los detalles del proceso"
+  },
+  "rejectedTenantRimbo": {
+    "helmet": "Inquilino rechazado por Rimbo - Rimbo - The new way of rent",
+    "title": "Has rechazado al inquilino correctamente",
+    "subTitle": "Tanto tu como el propietario recibiréis un email con los detalles del proceso"
+  },
+  "approvedTenancyRimbo": {
+    "helmet": "Alquiler aceptado por Rimbo - Rimbo - The new way of rent",
+    "title": "Has aceptado correctamente el nuevo alquiler",
+    "subTitle": "El inquilino y el propietario recibirán un email informando del inici del servicio"
+  }
+}
