@@ -625,6 +625,14 @@ const sendRJ11Emails = async (req, res) => {
     })
   );
 
+  const transporterRJ115 = nodemailer.createTransport(
+    sgTransport({
+      auth: {
+        api_key: process.env.SENDGRID_API,
+      },
+    })
+  );
+
   let optionsRJ11 = {
     viewEngine: {
       extname: ".handlebars",
@@ -634,9 +642,19 @@ const sendRJ11Emails = async (req, res) => {
     viewPath: "views/",
   };
 
-  transporterRJ11.use("compile", hbs(optionsRJ11));
+  let optionsRJ115 = {
+    viewEngine: {
+      extname: ".handlebars",
+      layoutsDir: "views/",
+      defaultLayout: "rj115Email",
+    },
+    viewPath: "views/",
+  };
 
-  // RJ11 Email  @PM/Agency
+  transporterRJ11.use("compile", hbs(optionsRJ11));
+  transporterRJ115.use("compile", hbs(optionsRJ115));
+
+  // RJ11 Email  @PM/Agency To accept tenancy
   const pmEmail = {
     from: "Rimbo info@rimbo.rent",
     to: agencyEmailPerson, // pm's email
@@ -659,7 +677,39 @@ const sendRJ11Emails = async (req, res) => {
       tenantsNameFour,
     },
   };
+
+  // RJ11 Email  @PM/Agency to see screening result
+  const pmEmailTwo = {
+    from: "Rimbo info@rimbo.rent",
+    to: agencyEmailPerson, // pm's email
+    subject: `Screening results for tenant ${tenantsName}`,
+    attachments: [
+      {
+        filename: "rimbo-logo.png",
+        path: "./views/images/rimbo-logo.png",
+        cid: "rimbologo",
+      },
+    ],
+    template: "rj115Email",
+    context: {
+      agencyContactPerson,
+      agencyEmailPerson,
+      tenancyID,
+      tenantsName,
+      tenantsNameTwo,
+      tenantsNameThree,
+      tenantsNameFour,
+    },
+  };
   transporterRJ11.sendMail(pmEmail, (err, data) => {
+    if (err) {
+      console.log("There is an error here...!" + err);
+    } else {
+      console.log("Email sent!");
+    }
+  });
+
+  transporterRJ115.sendMail(pmEmailTwo, (err, data) => {
     if (err) {
       console.log("There is an error here...!" + err);
     } else {
