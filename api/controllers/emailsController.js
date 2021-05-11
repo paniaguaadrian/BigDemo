@@ -689,6 +689,10 @@ const sendRJ11Emails = async (req, res) => {
         path: "./views/images/rimbo-logo.png",
         cid: "rimbologo",
       },
+      {
+        filename: "Screening_Certificate_Template_EN.pdf",
+        path: "./views/images/Screening_Certificate_Template_EN.pdf",
+      },
     ],
     template: "rj115Email",
     context: {
