@@ -3,7 +3,8 @@ import sgTransport from "nodemailer-sendgrid-transport";
 import hbs from "nodemailer-express-handlebars";
 
 // * Rimbo rent emails
-const rimboEmail = "info@rimbo.rent";
+// const rimboEmail = "info@rimbo.rent";
+const rimboEmail = "paniaguasanchezadrian@gmail.com";
 // const testEmail = "paniaguasanchezadrian@gmail.com";
 // const testEmail = "gloriya@rimbo.rent";
 // const testEmail = "victor@rimbo.rent";
@@ -53,7 +54,6 @@ const sendRJ1FormEmails = async (req, res) => {
       },
     })
   );
-
   const transporterRJ4 = nodemailer.createTransport(
     sgTransport({
       auth: {
@@ -61,7 +61,6 @@ const sendRJ1FormEmails = async (req, res) => {
       },
     })
   );
-
   const transporterRJ4Two = nodemailer.createTransport(
     sgTransport({
       auth: {
@@ -83,7 +82,6 @@ const sendRJ1FormEmails = async (req, res) => {
       },
     })
   );
-
   const transporterRJD = nodemailer.createTransport(
     sgTransport({
       auth: {
@@ -393,58 +391,58 @@ const sendRJ1FormEmails = async (req, res) => {
     });
   }
 
-  // RJD Email  @Rimbo
-  const RimboEmail = {
-    from: "Rimbo info@rimbo.rent",
-    to: rimboEmail, // Rimbo email
-    subject: `Nuevo inquilino registrado por ${agencyName}`,
-    attachments: [
-      {
-        filename: "rimbo-logo.png",
-        path: "./viewsEs/images/rimbo-logo.png",
-        cid: "rimbologo",
-      },
-    ],
-    template: "rjdEmail",
-    context: {
-      agencyName,
-      agencyContactPerson,
-      agencyEmailPerson,
-      agencyPhonePerson,
+  // // RJD Email  @Rimbo
+  // const RimboEmail = {
+  //   from: "Rimbo info@rimbo.rent",
+  //   to: rimboEmail, // Rimbo email
+  //   subject: `Nuevo inquilino registrado por ${agencyName}`,
+  //   attachments: [
+  //     {
+  //       filename: "rimbo-logo.png",
+  //       path: "./viewsEs/images/rimbo-logo.png",
+  //       cid: "rimbologo",
+  //     },
+  //   ],
+  //   template: "rjdEmail",
+  //   context: {
+  //     agencyName,
+  //     agencyContactPerson,
+  //     agencyEmailPerson,
+  //     agencyPhonePerson,
 
-      tenantsName,
-      tenantsEmail,
-      tenantsPhone,
+  //     tenantsName,
+  //     tenantsEmail,
+  //     tenantsPhone,
 
-      tenantsNameTwo,
-      tenantsEmailTwo,
-      tenantsPhoneTwo,
+  //     tenantsNameTwo,
+  //     tenantsEmailTwo,
+  //     tenantsPhoneTwo,
 
-      tenantsNameThree,
-      tenantsEmailThree,
-      tenantsPhoneThree,
+  //     tenantsNameThree,
+  //     tenantsEmailThree,
+  //     tenantsPhoneThree,
 
-      tenantsNameFour,
-      tenantsEmailFour,
-      tenantsPhoneFour,
-      rentAmount,
-      product,
-      rentDuration,
-      rentalAddress,
-      rentalCity,
-      rentalPostalCode,
-      landlordName,
-      landlordPhone,
-      landlordEmail,
-    },
-  };
-  transporterRJD.sendMail(RimboEmail, (err, data) => {
-    if (err) {
-      console.log("There is an error here...!" + err);
-    } else {
-      console.log("Email sent!");
-    }
-  });
+  //     tenantsNameFour,
+  //     tenantsEmailFour,
+  //     tenantsPhoneFour,
+  //     rentAmount,
+  //     product,
+  //     rentDuration,
+  //     rentalAddress,
+  //     rentalCity,
+  //     rentalPostalCode,
+  //     landlordName,
+  //     landlordPhone,
+  //     landlordEmail,
+  //   },
+  // };
+  // transporterRJD.sendMail(RimboEmail, (err, data) => {
+  //   if (err) {
+  //     console.log("There is an error here...!" + err);
+  //   } else {
+  //     console.log("Email sent!");
+  //   }
+  // });
 
   res.status(200).json();
 };
@@ -502,7 +500,7 @@ const sendRJ2FormEmails = async (req, res) => {
   res.status(200).json();
 };
 
-// ! RJ2 Form => RJXX3 Email with tenant's files attached
+// ! RJ2 Form => RJXX3 Email with tenant's files attached --DELETE--
 const sendRJ3FilesEmail = async (req, res) => {
   const {
     agencyName,
@@ -728,6 +726,8 @@ const sendRJ11Emails = async (req, res) => {
 const sendRJ12Emails = async (req, res) => {
   const {
     tenantsName,
+    tenantsEmail,
+    tenantsPhone,
     agencyName,
     agencyContactPerson,
     agencyEmailPerson,
@@ -789,6 +789,8 @@ const sendRJ12Emails = async (req, res) => {
     template: "rj12Email",
     context: {
       tenantsName,
+      tenantsEmail,
+      tenantsPhone,
       agencyName,
       agencyContactPerson,
       agencyEmailPerson,
@@ -840,7 +842,7 @@ const sendRJ12Emails = async (req, res) => {
   res.status(200).json();
 };
 
-// ! RJ11 Email => RJXX4, RJ14 Emails
+// ! RJ11 Email => RJXX4, RJ14 Emails Tenant approved by PM
 const sendPMEmails = async (req, res) => {
   const {
     tenancyID,
@@ -904,42 +906,42 @@ const sendPMEmails = async (req, res) => {
   transporterRJ14.use("compile", hbs(optionsRJ14));
 
   // RJXX4 Email @Rimbo
-  const RimboEmail = {
-    from: "Rimbo info@rimbo.rent",
-    to: rimboEmail, // Rimbo email
-    subject: `Inquilino aceptado por ${agencyName}`,
-    attachments: [
-      {
-        filename: "rimbo-logo.png",
-        path: "./viewsEs/images/rimbo-logo.png",
-        cid: "rimbologo",
-      },
-    ],
-    template: "rjxx4Email",
-    context: {
-      tenancyID,
-      randomID,
-      tenantsName,
-      tenantsEmail,
-      tenantsPhone,
-      monthlyNetIncome,
-      jobType,
-      documentNumber,
-      agencyContactPerson,
-      agencyEmailPerson,
-      agencyName,
-      agencyPhonePerson,
-      rentAmount,
-      product,
-      rentDuration,
-      rentalAddress,
-      rentalCity,
-      rentalPostalCode,
-      landlordName,
-      landlordEmail,
-      landlordPhone,
-    },
-  };
+  // const RimboEmail = {
+  //   from: "Rimbo info@rimbo.rent",
+  //   to: rimboEmail, // Rimbo email
+  //   subject: `Inquilino aceptado por ${agencyName}`,
+  //   attachments: [
+  //     {
+  //       filename: "rimbo-logo.png",
+  //       path: "./viewsEs/images/rimbo-logo.png",
+  //       cid: "rimbologo",
+  //     },
+  //   ],
+  //   template: "rjxx4Email",
+  //   context: {
+  //     tenancyID,
+  //     randomID,
+  //     tenantsName,
+  //     tenantsEmail,
+  //     tenantsPhone,
+  //     monthlyNetIncome,
+  //     jobType,
+  //     documentNumber,
+  //     agencyContactPerson,
+  //     agencyEmailPerson,
+  //     agencyName,
+  //     agencyPhonePerson,
+  //     rentAmount,
+  //     product,
+  //     rentDuration,
+  //     rentalAddress,
+  //     rentalCity,
+  //     rentalPostalCode,
+  //     landlordName,
+  //     landlordEmail,
+  //     landlordPhone,
+  //   },
+  // };
 
   // RJ14 Email @Tenant
   const TenantEmail = {
@@ -964,13 +966,13 @@ const sendPMEmails = async (req, res) => {
     },
   };
 
-  transporterRJXX4.sendMail(RimboEmail, (err, data) => {
-    if (err) {
-      console.log("There is an error here...!" + err);
-    } else {
-      console.log("Email sent!");
-    }
-  });
+  // transporterRJXX4.sendMail(RimboEmail, (err, data) => {
+  //   if (err) {
+  //     console.log("There is an error here...!" + err);
+  //   } else {
+  //     console.log("Email sent!");
+  //   }
+  // });
 
   transporterRJ14.sendMail(TenantEmail, (err, data) => {
     if (err) {

@@ -53,17 +53,10 @@ const ApprovedTenancyRimbo = ({ t }) => {
 
       const { data: decisionResult } = await postDecision(postBody);
       if (!tenancyData.rentStart) {
-        const {
-          tenantsName,
-          tenantsEmail,
-          randomID,
-          tenantsLanguage,
-        } = tenancyData.tenant;
-        const {
-          agencyContactPerson,
-          agencyEmailPerson,
-          agencyLanguage,
-        } = tenancyData.agent;
+        const { tenantsName, tenantsEmail, randomID, tenantsLanguage } =
+          tenancyData.tenant;
+        const { agencyContactPerson, agencyEmailPerson, agencyLanguage } =
+          tenancyData.agent;
         const { rentalAddress } = tenancyData.property;
         const tenancyID = tenancyData.tenancyID;
         const emailData = {
@@ -87,12 +80,8 @@ const ApprovedTenancyRimbo = ({ t }) => {
         }
         // ! Tenant Two
         if (tenancyData.tenantTwo) {
-          const {
-            tenantsName,
-            tenantsEmail,
-            randomID,
-            tenantsLanguage,
-          } = tenancyData.tenantTwo;
+          const { tenantsName, tenantsEmail, randomID, tenantsLanguage } =
+            tenancyData.tenantTwo;
           const { agencyContactPerson, agencyEmailPerson } = tenancyData.agent;
           const { rentalAddress } = tenancyData.property;
           const tenancyID = tenancyData.tenancyID;
@@ -113,12 +102,8 @@ const ApprovedTenancyRimbo = ({ t }) => {
         }
         // ! Tenant Three
         if (tenancyData.tenantThree) {
-          const {
-            tenantsName,
-            tenantsEmail,
-            tenantsLanguage,
-            randomID,
-          } = tenancyData.tenantThree;
+          const { tenantsName, tenantsEmail, tenantsLanguage, randomID } =
+            tenancyData.tenantThree;
           const { agencyContactPerson, agencyEmailPerson } = tenancyData.agent;
           const { rentalAddress } = tenancyData.property;
           const tenancyID = tenancyData.tenancyID;
@@ -139,12 +124,8 @@ const ApprovedTenancyRimbo = ({ t }) => {
         }
         // ! Tenant Four
         if (tenancyData.tenantFour) {
-          const {
-            tenantsName,
-            tenantsEmail,
-            tenantsLanguage,
-            randomID,
-          } = tenancyData.tenantFour;
+          const { tenantsName, tenantsEmail, tenantsLanguage, randomID } =
+            tenancyData.tenantFour;
           const { agencyContactPerson, agencyEmailPerson } = tenancyData.agent;
           const { rentalAddress } = tenancyData.property;
           const tenancyID = tenancyData.tenancyID;

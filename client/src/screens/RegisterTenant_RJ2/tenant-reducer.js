@@ -6,6 +6,7 @@ export const DefaultTenant = {
   documentType: "",
   documentNumber: "",
   isAcceptedPrivacy: true,
+  isRimboAccepted: true,
   stageOne: 5,
 };
 

@@ -215,6 +215,7 @@ const RegisterTenant = ({ t }) => {
         stageOne: tenant.stageOne,
         randomID: tenancyID,
         tenantsLanguage: tenantsLanguage,
+        isRimboAccepted: tenant.isRimboAccepted,
       }
     );
 
@@ -297,7 +298,7 @@ const RegisterTenant = ({ t }) => {
     const sendAttachments = async () => {
       if (sent) {
         if (i18n.language === "en") {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj2/rimbo`, {
+          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, {
             tenancyID,
             tenantsName: tenantData.tenantsName,
             tenantsPhone: tenantData.tenantsPhone,
@@ -328,7 +329,7 @@ const RegisterTenant = ({ t }) => {
             landlordEmail: desiredTenancy.landlord.landlordEmail,
           });
         } else {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj2/rimbo`, {
+          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, {
             tenancyID,
             tenantsName: tenantData.tenantsName,
             tenantsPhone: tenantData.tenantsPhone,

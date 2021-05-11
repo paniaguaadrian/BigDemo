@@ -21,7 +21,6 @@ import SendIcon from "@material-ui/icons/Send";
 
 // Multi language
 import { withNamespaces } from "react-i18next";
-import i18n from "../../i18n";
 
 // Images
 import SuccessImage from "../../images/success-image.svg";
@@ -40,7 +39,6 @@ const RegisterTenantPM = ({ t }) => {
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
 
   const [responseData, setResponseData] = useState([]); // eslint-disable-line
-  const [responseDataAfter, setResponseDataAfter] = useState([]);
   const [loading, setLoading] = useState(false); //eslint-disable-line
   const [err, setErr] = useState(null); //eslint-disable-line
 
@@ -117,56 +115,123 @@ const RegisterTenantPM = ({ t }) => {
   };
 
   useEffect(() => {
-    const getData = () => {
-      fetch(`${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY}/${tenancyID}`)
-        .then((res) => {
-          if (res.status >= 400) {
-            throw new Error("Server responds with error!" + res.status);
-          }
-          return res.json();
-        })
-        .then(
-          (responseDataAfter) => {
-            setResponseDataAfter(responseDataAfter);
-            setLoading(true);
-          },
-          (err) => {
-            setErr(err);
-            setLoading(true);
-          }
-        );
-    };
-    getData();
-  }, [sent, tenancyID]);
+    const fetchUserData = () =>
+      axios.get(
+        `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY}/${tenancyID}`
+      );
+    const processDecision = async () => {
+      const { data: tenancyData } = await fetchUserData();
+      const {
+        agencyName,
+        agencyContactPerson,
+        agencyEmailPerson,
+        agencyLanguage,
+      } = tenancyData.agent;
+      const { tenantsName, tenantsEmail, randomID, tenantsLanguage } =
+        tenancyData.tenant;
+      const { rentalAddress } = tenancyData.property;
+      const tenancyID = tenancyData.tenancyID;
 
-  useEffect(() => {
-    const sendAttachments = async () => {
-      if (sent) {
-        if (i18n.language === "en") {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/rjs`, {
-            agencyName: responseDataAfter.agent.agencyName,
-            agencyContactPerson: responseDataAfter.agent.agentContactPerson,
-            agencyEmailPerson: responseDataAfter.agent.agencyEmailPerson,
-            rentalAddress: responseDataAfter.property.rentalAddress,
-            tenantsName: responseDataAfter.tenant.tenantsName,
-            pmAnex: responseDataAfter.pmAnex,
-            tenancyID: tenancyID,
-          });
-        } else {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rjs`, {
-            agencyName: responseDataAfter.agent.agencyName,
-            agencyContactPerson: responseDataAfter.agent.agentContactPerson,
-            agencyEmailPerson: responseDataAfter.agent.agencyEmailPerson,
-            rentalAddress: responseDataAfter.property.rentalAddress,
-            tenantsName: responseDataAfter.tenant.tenantsName,
-            pmAnex: responseDataAfter.pmAnex,
-            tenancyID: tenancyID,
-          });
+      const emailData = {
+        agencyName,
+        agencyContactPerson,
+        agencyEmailPerson,
+        agencyLanguage,
+        tenantsName,
+        tenantsEmail,
+        randomID,
+        tenantsLanguage,
+        rentalAddress,
+        tenancyID,
+      };
+
+      const sendAttachments = async () => {
+        if (sent) {
+          if (tenantsLanguage === "en") {
+            axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj18tt`, emailData);
+          } else if (tenantsLanguage === "es") {
+            axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj18tt`, emailData);
+          }
+          if (agencyLanguage === "en") {
+            axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj18pm`, emailData);
+          } else if (agencyLanguage === "es") {
+            axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj18pm`, emailData);
+          }
+          // ! Tenant Two
+          if (tenancyData.tenantTwo) {
+            const { tenantsName, tenantsEmail, randomID, tenantsLanguage } =
+              tenancyData.tenantTwo;
+            const { agencyContactPerson, agencyEmailPerson } =
+              tenancyData.agent;
+            const { rentalAddress } = tenancyData.property;
+            const tenancyID = tenancyData.tenancyID;
+            const emailData = {
+              tenancyID,
+              randomID,
+              tenantsName,
+              tenantsEmail,
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+            };
+            if (tenantsLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj18tt`, emailData);
+            } else if (tenantsLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj18tt`, emailData);
+            }
+          }
+          // ! Tenant Three
+          if (tenancyData.tenantThree) {
+            const { tenantsName, tenantsEmail, tenantsLanguage, randomID } =
+              tenancyData.tenantThree;
+            const { agencyContactPerson, agencyEmailPerson } =
+              tenancyData.agent;
+            const { rentalAddress } = tenancyData.property;
+            const tenancyID = tenancyData.tenancyID;
+            const emailData = {
+              tenancyID,
+              randomID,
+              tenantsName,
+              tenantsEmail,
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+            };
+            if (tenantsLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj18tt`, emailData);
+            } else if (tenantsLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj18tt`, emailData);
+            }
+          }
+          // ! Tenant Four
+          if (tenancyData.tenantFour) {
+            const { tenantsName, tenantsEmail, tenantsLanguage, randomID } =
+              tenancyData.tenantFour;
+            const { agencyContactPerson, agencyEmailPerson } =
+              tenancyData.agent;
+            const { rentalAddress } = tenancyData.property;
+            const tenancyID = tenancyData.tenancyID;
+            const emailData = {
+              tenancyID,
+              randomID,
+              tenantsName,
+              tenantsEmail,
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+            };
+            if (tenantsLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj18tt`, emailData);
+            } else if (tenantsLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj18tt`, emailData);
+            }
+          }
         }
-      }
+      };
+      sendAttachments();
     };
-    sendAttachments();
-  }, [responseDataAfter]); //eslint-disable-line
+    processDecision();
+  }, [sent, tenancyID]);
 
   return (
     <>
