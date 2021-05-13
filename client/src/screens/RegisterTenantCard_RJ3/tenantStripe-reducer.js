@@ -3,6 +3,8 @@ import { UPDATE_NEWTENANT_INFO } from "./tenantStripe-constants";
 export const DefaultTenant = {
   isTrying: true,
   isAcceptedGC: true,
+  isCardAccepted: true,
+  isAllCardsAccepted: true,
 };
 
 export const TenantStripeReducer = (newTenant, { type, payload }) => {

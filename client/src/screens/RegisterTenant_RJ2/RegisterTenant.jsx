@@ -1,5 +1,5 @@
 // React Components
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { TenantReducer, DefaultTenant } from "./tenant-reducer";
@@ -24,22 +24,26 @@ import Success from "../../components/Success/Success";
 import CustomHelmet from "../../components/Helmet/CustomHelmet";
 
 // Material-ui Components
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import ButtonMat from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
+import {
+  TextField,
+  InputAdornment,
+  MenuItem,
+  FormHelperText,
+  FormControl,
+  Button as ButtonMat,
+  Select,
+  InputLabel,
+} from "@material-ui/core";
 
 // Material-ui Icons
-import EuroSharpIcon from "@material-ui/icons/EuroSharp";
-import AssignmentIndSharpIcon from "@material-ui/icons/AssignmentIndSharp";
-import EditLocationIcon from "@material-ui/icons/EditLocation";
-import MarkunreadMailboxIcon from "@material-ui/icons/MarkunreadMailbox";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import SendIcon from "@material-ui/icons/Send";
+import {
+  EuroSharp as EuroSharpIcon,
+  AssignmentIndSharp as AssignmentIndSharpIcon,
+  EditLocation as EditLocationIcon,
+  MarkunreadMailbox as MarkunreadMailboxIcon,
+  LocationOn as LocationOnIcon,
+  Send as SendIcon,
+} from "@material-ui/icons";
 
 // Multilanguage
 import { withNamespaces } from "react-i18next";
@@ -53,7 +57,7 @@ import { Card } from "@material-ui/core";
 
 const {
   REACT_APP_BASE_URL,
-  // REACT_APP_API_RIMBO_TENANCY,
+  REACT_APP_API_RIMBO_TENANCY,
   REACT_APP_API_RIMBO_TENANCIES,
   REACT_APP_API_RIMBO_TENANT,
   REACT_APP_BASE_URL_EMAIL,
@@ -63,40 +67,32 @@ const RegisterTenant = ({ t }) => {
   let { tenancyID } = useParams();
   const randomID = tenancyID;
 
+  // Reducer
   const [tenant, setTenant] = useReducer(TenantReducer, DefaultTenant);
 
+  // State
   const [errors, setErrors] = useState({});
   const [isProcessing, setProcessingTo] = useState(false);
   const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
-  const [sent, isSent] = useState(false);
-
-  const [tenantData, setTenantData] = useState([]);
-
-  const [tenancyData, setTenancyData] = useState([]);
-
-  const [tenantDataAfter, setTenantDataAfter] = useState([]);
-
-  const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState(null);
-
+  const [sent, isSent] = useState(false); // eslint-disable-line
+  const [tenancyState, setTenancyState] = useState(null); // eslint-disable-line
   const [files, setFiles] = useState({
     DF: null,
     DB: null,
     DCA: null,
   });
-
   const [tenantsAddress, setTenantsAddress] = useState("");
   const [tenantsZipCode, setTenantsZipCode] = useState("");
 
   const tenantsLanguage = i18n.language;
 
-  // Scroll to top
+  // Scroll to top (styling)
   const optionsTop = {
     top: 0,
     behavior: "smooth",
   };
 
-  // Google Maps Address and Zip Code
+  // Google Maps functionality
   const handleSelect = async (value) => {
     const results = await geocodeByAddress(value);
 
@@ -129,32 +125,18 @@ const RegisterTenant = ({ t }) => {
     }
   };
 
-  useEffect(
-    () => {
-      const getData = () => {
-        fetch(`${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/${randomID}`)
-          .then((res) => {
-            if (res.status >= 400) {
-              throw new Error("Server responds with error!" + res.status);
-            }
-            return res.json();
-          })
-          .then(
-            (tenantData) => {
-              setTenantData(tenantData);
-              setLoading(true);
-            },
-            (err) => {
-              setErr(err);
-              setLoading(true);
-            }
-          );
-      };
-      getData();
-    },
-    [randomID],
-    [tenantData, loading, err]
-  );
+  // Helper functions
+  const fetchTenantData = () =>
+    axios.get(`${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/${randomID}`);
+
+  const fetchTenancyData = () =>
+    axios.get(`${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCIES}`);
+
+  const postTenancyDecision = (body) =>
+    axios.post(
+      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY}/${tenancyID}/allTenantsAccepted`,
+      body
+    );
 
   const handleNewTenant = ({ target }) => {
     setTenant({
@@ -176,6 +158,9 @@ const RegisterTenant = ({ t }) => {
     e.preventDefault();
     isSent(false);
 
+    // Call our tenant fetch function
+    const { data: tenantData } = await fetchTenantData();
+
     const formData = new FormData();
     for (const key in files) {
       formData.append(key, files[key]);
@@ -194,16 +179,16 @@ const RegisterTenant = ({ t }) => {
       setProcessingTo(true);
     }
 
-    // Post to Rimbo API (files/images)
+    // Post to Rimbo API (tenant files/images)
     await axios.post(
       `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/${randomID}/upload`,
       formData,
       { randomID }
     );
 
-    // Post to Rimbo API Data
+    // Post to Rimbo API Data (tenant data)
     await axios.post(
-      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/${randomID}`,
+      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/bigdemo/${randomID}`,
       {
         monthlyNetIncome: tenant.monthlyNetIncome,
         jobType: tenant.jobType,
@@ -231,139 +216,149 @@ const RegisterTenant = ({ t }) => {
         tenantsEmail: tenantData.tenantsEmail,
       });
     }
-    const getTenancyData = async () => {
-      await fetch(`${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCIES}`)
-        .then((res) => {
-          if (res.status >= 400) {
-            throw new Error("Server responds with error!" + res.status);
-          }
-          return res.json();
-        })
-        .then(
-          (tenancyData) => {
-            setTenancyData(tenancyData);
-            setLoading(true);
-          },
-          (err) => {
-            setErr(err);
-            setLoading(true);
-          }
-        );
-    };
-    getTenancyData();
-
-    const getTenantData = async () => {
-      await fetch(
-        `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANT}/${randomID}`
-      )
-        .then((res) => {
-          if (res.status >= 400) {
-            throw new Error("Server responds with error!" + res.status);
-          }
-          return res.json();
-        })
-        .then(
-          (tenantDataAfter) => {
-            setTenantDataAfter(tenantDataAfter);
-            setLoading(true);
-          },
-          (err) => {
-            setErr(err);
-            setLoading(true);
-          }
-        );
-    };
-    getTenantData();
 
     setIsSuccessfullySubmitted(true);
     isSent(true);
     window.scrollTo(optionsTop);
-  };
 
-  const tenants = ["tenant", "tenantTwo", "tenantThree", "tenantFour"];
+    const processDecision = async () => {
+      const { data: tenancyData } = await fetchTenancyData();
 
-  const getTenancy = (randomID) => {
-    for (let tenancy of tenancyData) {
-      for (let key in tenancy) {
-        if (!tenants.includes(key)) continue;
-        if (tenancy[key].randomID === randomID) return tenancy;
-      }
-    }
-  };
+      const tenants = ["tenant", "tenantTwo", "tenantThree", "tenantFour"];
 
-  const desiredTenancy = getTenancy(randomID);
+      const getTenancy = (randomID) => {
+        for (let tenancy of tenancyData) {
+          for (let key in tenancy) {
+            if (!tenants.includes(key)) continue;
+            if (tenancy[key].randomID === randomID) return tenancy;
+          }
+        }
+      };
 
-  // !Send an email with the specific data
-  useEffect(() => {
-    const sendAttachments = async () => {
-      if (sent) {
-        if (i18n.language === "en") {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, {
-            tenancyID,
-            tenantsName: tenantData.tenantsName,
-            tenantsPhone: tenantData.tenantsPhone,
-            tenantsEmail: tenantData.tenantsEmail,
-            monthlyNetIncome: tenant.monthlyNetIncome,
-            jobType: tenant.jobType,
-            documentNumber: tenant.documentNumber,
-            tenantsAddress: tenantsAddress,
-            tenantsZipCode: tenantsZipCode,
-            documentImageFront: tenantDataAfter.documentImageFront,
-            documentImageBack: tenantDataAfter.documentImageBack,
-            documentConfirmAddress: tenantDataAfter.documentConfirmAddress,
-            // Agent/Agency
-            agencyName: desiredTenancy.agent.agencyName,
-            agencyContactPerson: desiredTenancy.agent.agencyContactPerson,
-            agencyPhonePerson: desiredTenancy.agent.agencyPhonePerson,
-            agencyEmailPerson: desiredTenancy.agent.agencyEmailPerson,
-            // Proprety
-            rentAmount: desiredTenancy.rentAmount,
-            product: desiredTenancy.product,
-            rentDuration: desiredTenancy.rentDuration,
-            rentalAddress: desiredTenancy.property.rentalAddress,
-            rentalCity: desiredTenancy.property.rentalCity,
-            rentalPostalCode: desiredTenancy.property.rentalPostalCode,
-            // Landlord
-            landlordName: desiredTenancy.landlord.landlordName,
-            landlordPhone: desiredTenancy.landlord.landlordPhone,
-            landlordEmail: desiredTenancy.landlord.landlordEmail,
-          });
-        } else {
-          await axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, {
-            tenancyID,
-            tenantsName: tenantData.tenantsName,
-            tenantsPhone: tenantData.tenantsPhone,
-            tenantsEmail: tenantData.tenantsEmail,
-            monthlyNetIncome: tenant.monthlyNetIncome,
-            jobType: tenant.jobType,
-            documentNumber: tenant.documentNumber,
-            tenantsAddress: tenantsAddress,
-            tenantsZipCode: tenantsZipCode,
-            documentImageFront: tenantDataAfter.documentImageFront,
-            documentImageBack: tenantDataAfter.documentImageBack,
-            documentConfirmAddress: tenantDataAfter.documentConfirmAddress,
-            // Agent/Agency
-            agencyName: desiredTenancy.agent.agencyName,
-            agencyContactPerson: desiredTenancy.agent.agencyContactPerson,
-            agencyPhonePerson: desiredTenancy.agent.agencyPhonePerson,
-            agencyEmailPerson: desiredTenancy.agent.agencyEmailPerson,
-            // Proprety
-            rentAmount: desiredTenancy.rentAmount,
-            product: desiredTenancy.product,
-            rentDuration: desiredTenancy.rentDuration,
-            rentalAddress: desiredTenancy.property.rentalAddress,
-            rentalCity: desiredTenancy.property.rentalCity,
-            rentalPostalCode: desiredTenancy.property.rentalPostalCode,
-            // Landlord
-            landlordName: desiredTenancy.landlord.landlordName,
-            landlordPhone: desiredTenancy.landlord.landlordPhone,
-            landlordEmail: desiredTenancy.landlord.landlordEmail,
-          });
+      const desiredTenancy = getTenancy(randomID);
+
+      const hasAccepted = Object.keys(desiredTenancy)
+        // eslint-disable-next-line
+        .map((key) => {
+          const isExist = tenants.includes(key);
+          if (isExist) {
+            const thisONE = desiredTenancy[key].isRimboAccepted;
+            return thisONE;
+          }
+        })
+        .filter((item) => item !== undefined)
+        .every((x) => x);
+
+      if (hasAccepted) {
+        if (!desiredTenancy.isAllTenantsAccepted) {
+          const postTenancyBody = {
+            isAllTenantsAccepted: tenant.isAllTenantsAccepted,
+            tenancyID: desiredTenancy.tenancyID,
+          };
+
+          const { data: decisionTenancyResult } = await postTenancyDecision(
+            postTenancyBody
+          );
+
+          const { agencyContactPerson, agencyEmailPerson, agencyLanguage } =
+            desiredTenancy.agent;
+
+          const { rentalAddress } = desiredTenancy.property;
+
+          const tenancyID = desiredTenancy.tenancyID;
+
+          if (
+            !desiredTenancy.tenantTwo &&
+            !desiredTenancy.tenantThree &&
+            !desiredTenancy.tenantFour
+          ) {
+            const { tenantsName } = desiredTenancy.tenant;
+            const emailData = {
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+              tenancyID,
+              tenantsName,
+            };
+            if (agencyLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, emailData);
+            } else if (agencyLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, emailData);
+            }
+          }
+
+          if (
+            desiredTenancy.tenantTwo &&
+            !desiredTenancy.tenantThree &&
+            !desiredTenancy.tenantFour
+          ) {
+            const { tenantsName } = desiredTenancy.tenant;
+            const { tenantsName: tenantsNameTwo } = desiredTenancy.tenantTwo;
+            const emailData = {
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+              tenancyID,
+              tenantsName,
+              tenantsNameTwo,
+            };
+            if (agencyLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, emailData);
+            } else if (agencyLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, emailData);
+            }
+          }
+
+          if (desiredTenancy.tenantThree && !desiredTenancy.tenantFour) {
+            const { tenantsName } = desiredTenancy.tenant;
+            const { tenantsName: tenantsNameTwo } = desiredTenancy.tenantTwo;
+            const { tenantsName: tenantsNameThree } =
+              desiredTenancy.tenantThree;
+            const emailData = {
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+              tenancyID,
+              tenantsName,
+              tenantsNameTwo,
+              tenantsNameThree,
+            };
+            if (agencyLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, emailData);
+            } else if (agencyLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, emailData);
+            }
+          }
+
+          if (desiredTenancy.tenantFour) {
+            const { tenantsName } = desiredTenancy.tenant;
+            const { tenantsName: tenantsNameTwo } = desiredTenancy.tenantTwo;
+            const { tenantsName: tenantsNameThree } =
+              desiredTenancy.tenantThree;
+            const { tenantsName: tenantsNameFour } = desiredTenancy.tenantFour;
+            const emailData = {
+              agencyContactPerson,
+              agencyEmailPerson,
+              rentalAddress,
+              tenancyID,
+              tenantsName,
+              tenantsNameTwo,
+              tenantsNameThree,
+              tenantsNameFour,
+            };
+            if (agencyLanguage === "en") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/rj11`, emailData);
+            } else if (agencyLanguage === "es") {
+              axios.post(`${REACT_APP_BASE_URL_EMAIL}/es/rj11`, emailData);
+            }
+          }
+          setTenancyState(decisionTenancyResult);
         }
       }
     };
-    sendAttachments();
-  }, [tenancyData]); //eslint-disable-line
+
+    processDecision();
+  };
 
   return (
     <>

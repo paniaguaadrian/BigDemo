@@ -8,6 +8,7 @@ export const DefaultTenant = {
   isAcceptedPrivacy: true,
   isRimboAccepted: true,
   stageOne: 5,
+  isAllTenantsAccepted: true,
 };
 
 export const TenantReducer = (newTenant, { type, payload }) => {
