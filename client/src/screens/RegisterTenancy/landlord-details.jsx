@@ -39,7 +39,7 @@ import i18n from "../../i18n";
 // End-Points env
 const {
   REACT_APP_BASE_URL,
-  REACT_APP_API_RIMBO_TENANCIES,
+  REACT_APP_API_RIMBO_TENANCY_BIGDEMO,
   REACT_APP_BASE_URL_EMAIL,
 } = process.env;
 
@@ -134,7 +134,7 @@ const LandlorDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
 
     // Post DB
     await axios.post(
-      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCIES}`,
+      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY_BIGDEMO}`,
       tenancyData
     );
 
