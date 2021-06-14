@@ -8,7 +8,8 @@
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  height: 72vh;
+  margin-top: 10rem;
+  height: 100%;
   @include xl {
     display: flex;
     justify-content: center;
@@ -16,19 +17,20 @@
     flex-direction: column;
     text-align: center;
     margin: 0 auto;
-
+    margin-top: 4rem;
     background-color: white;
-    height: 70vh;
+    height: 100%;
   }
 }
 
 .SuccessPageText {
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 1rem;
   color: black;
   @include xl {
     margin: 0 auto;
     color: black;
+    padding: 0 3rem;
   }
   h1 {
     @include xl {
@@ -59,5 +61,13 @@
     font-size: 1.5rem;
     margin-bottom: 4rem;
     font-weight: 400;
+  }
+  img {
+    width: 25rem;
+    margin: 0 auto;
+    @include xl {
+      width: 30rem;
+      margin: 0 auto;
+    }
   }
 }
